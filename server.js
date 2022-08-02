@@ -5,6 +5,8 @@ import express from 'express';
 import path from 'path';
 import http from 'http';
 
+
+// middlewares requires
 import { errors, pageNotFound } from './middlewares/errors.js';
 
 // consts
@@ -12,8 +14,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // middleware
-app.use(pageNotFound);
 app.use(errors);
+app.use(pageNotFound);
 
 // routes
 app.get('/', (req, res) => {
