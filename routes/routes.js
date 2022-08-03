@@ -1,23 +1,18 @@
 import { Router } from "express";
-
-/* Importing the errors and pageNotFound functions from the errors.js file. */
-import { errors, pageNotFound, testMiddleware, testMiddleware2 } from '../middlewares/errors.js';
+import { mainController } from "../controllers/controllers.js";
+import { testMiddleware, testMiddleware2 } from '../middlewares/errors.js';
 
 
 const router = Router();
 
 /* A middleware. */
-// app.use(errors);
-// app.use(pageNotFound);
+// app.use(testMiddleware);
+// app.use(testMiddleware2);
 
 
 /* A route */
-router.get('/', (req, res) => {
-    res.send('<h1>main</h1></h1>');
-})
+router.get('/', [], mainController);
 
-router.get('/tt1', (req, res) => {
-  res.send('<h1>tt1</h1></h1>');
-})
+router.get('/test', [], mainController);
 
 export default router;
