@@ -6,6 +6,12 @@ import { errors, pageNotFound, testMiddleware, testMiddleware2 } from '../middle
 
 const router = Router();
 
+/* A middleware. */
+// app.use(errors);
+// app.use(pageNotFound);
+
+
+/* A route */
 router.get('/', (req, res) => {
     res.send('<h1>main</h1></h1>');
 })
