@@ -1,33 +1,20 @@
 import 'dotenv/config';
 
-// requires
+/* Importing the express, path and http modules. */
 import express from 'express';
-import path from 'path';
-import http from 'http';
+import router from './routes/routes.js';
 
-
-// middlewares requires
-import { errors, pageNotFound } from './middlewares/errors.js';
-
-// consts
+/* The above code is creating a constant variable called app and setting it equal to the express
+function. The constant variable PORT is set equal to the process.env.PORT or 3000. */
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// middleware
-app.use(errors);
-app.use(pageNotFound);
 
-// routes
-app.get('/', (req, res) => {
-  res.send(`hh`);
-});
+/* A route. */
+app.use(router);
 
-app.get('/test', (req, res) => {
-  console.log(res.statusCode);
-  res.send(`hh`);
-});
 
-// server
+/* Listening to the port. */
 app.listen(PORT, (err) => {
   if (err) return console.log(`[-] err: ${err}`);
 

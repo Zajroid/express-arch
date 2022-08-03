@@ -9,11 +9,24 @@ export let errors = function (req, res, next) {
   if (req.url == '/error') {
     throw new Error('[-] ERRORS!');
   } else {
-    next()
+    next();
   }
 };
 
 export let pageNotFound = function (req, res) {
-  // if (req.url == res.statusCode)
-  res.send(404, 'Page not found');
+  if (req.url == (res.statusCode == 200)) {
+    res.send(404, 'Page not found');
+  } else {
+    console.log('ok')
+  }
+};
+
+export let testMiddleware = function (req, res, next) {
+  console.log(`Test middleware`);
+  next();
+};
+
+export let testMiddleware2 = function(req, res, next) {
+  console.log(`Test middleware 2`);
+  next();
 };
